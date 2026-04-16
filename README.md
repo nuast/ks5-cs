@@ -13,7 +13,7 @@ a-level/
 ├── CONTENTS.md                        ← Full spec index with links
 ├── _template.md                       ← Blank template for new topic files
 │
-├── component-01-computer-systems/     ← H446/01 topics
+├── computer-systems/     ← H446/01 topics
 │   ├── README.md
 │   ├── 1.1-characteristics-of-processors-io-storage/
 │   ├── 1.2-software-and-software-development/
@@ -21,7 +21,7 @@ a-level/
 │   ├── 1.4-data-types-data-structures-and-algorithms/
 │   └── 1.5-legal-moral-cultural-and-ethical-issues/
 │
-├── component-02-algorithms-and-programming/  ← H446/02 topics
+├── algorithms-programming/  ← H446/02 topics
 │   ├── README.md
 │   ├── 2.1-elements-of-computational-thinking/
 │   ├── 2.2-problem-solving-and-programming/
@@ -37,14 +37,14 @@ a-level/
 
 | Component | Section | Topic |
 |-----------|---------|-------|
-| 01 | [1.1](component-01-computer-systems/1.1-characteristics-of-processors-io-storage/) | Characteristics of contemporary processors, I/O and storage |
-| 01 | [1.2](component-01-computer-systems/1.2-software-and-software-development/) | Software and software development |
-| 01 | [1.3](component-01-computer-systems/1.3-exchanging-data/) | Exchanging data |
-| 01 | [1.4](component-01-computer-systems/1.4-data-types-data-structures-and-algorithms/) | Data types, data structures and algorithms |
-| 01 | [1.5](component-01-computer-systems/1.5-legal-moral-cultural-and-ethical-issues/) | Legal, moral, cultural and ethical issues |
-| 02 | [2.1](component-02-algorithms-and-programming/2.1-elements-of-computational-thinking/) | Elements of computational thinking |
-| 02 | [2.2](component-02-algorithms-and-programming/2.2-problem-solving-and-programming/) | Problem solving and programming |
-| 02 | [2.3](component-02-algorithms-and-programming/2.3-algorithms/) | Algorithms |
+| 01 | [1.1](computer-systems/1.1-characteristics-of-processors-io-storage/) | Characteristics of contemporary processors, I/O and storage |
+| 01 | [1.2](computer-systems/1.2-software-and-software-development/) | Software and software development |
+| 01 | [1.3](computer-systems/1.3-exchanging-data/) | Exchanging data |
+| 01 | [1.4](computer-systems/1.4-data-types-data-structures-and-algorithms/) | Data types, data structures and algorithms |
+| 01 | [1.5](computer-systems/1.5-legal-moral-cultural-and-ethical-issues/) | Legal, moral, cultural and ethical issues |
+| 02 | [2.1](algorithms-programming/2.1-elements-of-computational-thinking/) | Elements of computational thinking |
+| 02 | [2.2](algorithms-programming/2.2-problem-solving-and-programming/) | Problem solving and programming |
+| 02 | [2.3](algorithms-programming/2.3-algorithms/) | Algorithms |
 | 03 | [Project](programming-project/) | Programming project guidance |
 
 See [CONTENTS.md](CONTENTS.md) for the full numbered index.

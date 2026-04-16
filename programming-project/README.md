@@ -42,7 +42,7 @@ The project is marked against these criteria:
 - Produce **numbered, testable requirements** (e.g. "The system shall…").
 
 ### Design phase
-- Decompose the problem into sub-problems (see [2.1.3 Thinking procedurally](../component-02-algorithms-and-programming/2.1-elements-of-computational-thinking/2.1.3-thinking-procedurally.md)).
+- Decompose the problem into sub-problems (see [2.1.3 Thinking procedurally](../algorithms-programming/2.1-elements-of-computational-thinking/2.1.3-thinking-procedurally.md)).
 - Design your data structures before writing code.
 - Write a detailed **test plan** before testing.
 
@@ -63,8 +63,8 @@ The project is marked against these criteria:
 
 ## Useful links
 
-- [2.2.1 Programming techniques](../component-02-algorithms-and-programming/2.2-problem-solving-and-programming/2.2.1-programming-techniques.md) — recursion, OOP, file handling
-- [2.2.2 Computational methods](../component-02-algorithms-and-programming/2.2-problem-solving-and-programming/2.2.2-computational-methods.md) — problem-solving approaches
-- [2.3.1 Algorithms](../component-02-algorithms-and-programming/2.3-algorithms/2.3.1-algorithms.md) — algorithms to potentially incorporate
-- [1.4.2 Data structures](../component-01-computer-systems/1.4-data-types-data-structures-and-algorithms/1.4.2-data-structures.md) — choose appropriate structures
+- [2.2.1 Programming techniques](../algorithms-programming/2.2-problem-solving-and-programming/2.2.1-programming-techniques.md) — recursion, OOP, file handling
+- [2.2.2 Computational methods](../algorithms-programming/2.2-problem-solving-and-programming/2.2.2-computational-methods.md) — problem-solving approaches
+- [2.3.1 Algorithms](../algorithms-programming/2.3-algorithms/2.3.1-algorithms.md) — algorithms to potentially incorporate
+- [1.4.2 Data structures](../computer-systems/1.4-data-types-data-structures-and-algorithms/1.4.2-data-structures.md) — choose appropriate structures
 - [Back to full contents](../CONTENTS.md)
