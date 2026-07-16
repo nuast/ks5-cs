@@ -1,90 +1,247 @@
-# OCR A-Level Computer Science (H446) — Revision Scaffold
+# KS5 Computer Science — OCR A-Level (H446)
 
-> A student-friendly, exam-focused revision resource organised strictly by the **official OCR specification** (H446).  
-> Component 01 and Component 02 are kept clearly separated. Every file follows the OCR section numbering so you always know exactly where you are in the spec.
+> Teaching materials for OCR A-Level Computer Science (Years 12–13).  
+> All presentations are written in **Marp** Markdown and organised by topic.
 
 ---
 
-## 📂 How this repo is organised
+## 📂 Repository Structure
 
 ```
-a-level/
-├── README.md                          ← You are here
-├── CONTENTS.md                        ← Full spec index with links
-├── _template.md                       ← Blank template for new topic files
+ks5-cs/
 │
-├── computer-systems/     ← H446/01 topics
-│   ├── README.md
-│   ├── 1.1-characteristics-of-processors-io-storage/
-│   ├── 1.2-software-and-software-development/
-│   ├── 1.3-exchanging-data/
-│   ├── 1.4-data-types-data-structures-and-algorithms/
-│   └── 1.5-legal-moral-cultural-and-ethical-issues/
+├── assets/                   ← Shared media
+│   ├── images/               ← Photos, screenshots
+│   ├── diagrams/             ← Technical diagrams (SVG, PNG)
+│   └── logos/                ← School / OCR logos
 │
-├── algorithms-programming/  ← H446/02 topics
-│   ├── README.md
-│   ├── 2.1-elements-of-computational-thinking/
-│   ├── 2.2-problem-solving-and-programming/
-│   └── 2.3-algorithms/
+├── themes/
+│   └── ks5.css               ← Custom Marp theme (dark, modern)
 │
-└── programming-project/               ← H446/03 guidance
-    └── README.md
+├── templates/
+│   ├── lesson.md             ← Starting point for a new lesson deck
+│   └── title.md              ← Unit title slide
+│
+├── 00-Introduction/          ← Transition, induction and course overview
+├── 01-Programming/           ← Python, OOP, paradigms
+├── 02-Algorithms/            ← Searching, sorting, complexity
+├── 03-Data/                  ← Data types, structures, representation
+├── 04-Computer-Systems/      ← Processors, memory, OS, software
+├── 05-Networking/            ← Protocols, hardware, security
+├── 06-Cyber-Security/        ← Threats, defences, legislation
+├── 07-Databases/             ← SQL, normalisation, transactions
+├── 08-Functional-Programming/← Haskell / functional concepts
+├── 09-Theory/                ← Boolean algebra, Turing machines, languages
+├── 10-NEA/                   ← Programming project guidance
+│
+├── extras/                   ← Enrichment, careers, trips
+│
+├── computer-systems/         ← Existing revision notes (spec-aligned)
+├── algorithms-programming/   ← Existing revision notes (spec-aligned)
+├── programming-project/      ← Existing NEA guidance
+│
+└── README.md
+```
+
+The numbered topic folders (`01-Programming/` etc.) are for **Marp slide decks**.  
+The lettered folders (`computer-systems/`, `algorithms-programming/`) are legacy **revision notes**.
+
+---
+
+## 🛠️ Editing Presentations
+
+### Prerequisites
+
+Install the Marp CLI (requires Node.js):
+
+```bash
+npm install -g @marp-team/marp-cli
+```
+
+Or use the **Marp for VS Code** extension (recommended for day-to-day editing):
+
+1. Open VS Code.
+2. Install the extension: `Marp Team — Marp for VS Code`.
+3. Open any `.md` file with `marp: true` in the front-matter.
+4. Click the **preview** icon (top-right) or press `Ctrl+Shift+P → Marp: Open Preview`.
+
+### Registering the custom theme
+
+Add the theme path to VS Code settings (`.vscode/settings.json`):
+
+```json
+{
+  "markdown.marp.themes": [
+    "./themes/ks5.css"
+  ]
+}
+```
+
+Then set `theme: ks5` in a slide deck's front-matter.
+
+---
+
+## 👁️ Previewing Slides
+
+**VS Code (recommended)**
+
+Open the file and use the Marp preview pane. Changes appear live.
+
+**Browser preview via CLI**
+
+```bash
+marp --watch --theme themes/ks5.css 00-Introduction/year11-to-year12-transition.md
+```
+
+This opens a local server and reloads the preview whenever you save.
+
+---
+
+## 📤 Exporting Presentations
+
+### HTML (self-contained — easy to share)
+
+```bash
+marp --html --theme themes/ks5.css path/to/deck.md -o path/to/deck.html
+```
+
+### PDF
+
+```bash
+marp --pdf --theme themes/ks5.css path/to/deck.md -o path/to/deck.pdf
+```
+
+### PowerPoint (PPTX)
+
+```bash
+marp --pptx --theme themes/ks5.css path/to/deck.md -o path/to/deck.pptx
+```
+
+### Export all decks at once
+
+```bash
+# HTML — every .md file with marp: true
+marp --html --theme themes/ks5.css --input-dir . --output _exports/
 ```
 
 ---
 
-## 🗺️ Quick navigation
+## 🆕 Creating a New Presentation
 
-| Component | Section | Topic |
-|-----------|---------|-------|
-| 01 | [1.1](computer-systems/1.1-characteristics-of-processors-io-storage/) | Characteristics of contemporary processors, I/O and storage |
-| 01 | [1.2](computer-systems/1.2-software-and-software-development/) | Software and software development |
-| 01 | [1.3](computer-systems/1.3-exchanging-data/) | Exchanging data |
-| 01 | [1.4](computer-systems/1.4-data-types-data-structures-and-algorithms/) | Data types, data structures and algorithms |
-| 01 | [1.5](computer-systems/1.5-legal-moral-cultural-and-ethical-issues/) | Legal, moral, cultural and ethical issues |
-| 02 | [2.1](algorithms-programming/2.1-elements-of-computational-thinking/) | Elements of computational thinking |
-| 02 | [2.2](algorithms-programming/2.2-problem-solving-and-programming/) | Problem solving and programming |
-| 02 | [2.3](algorithms-programming/2.3-algorithms/) | Algorithms |
-| 03 | [Project](programming-project/) | Programming project guidance |
+1. **Copy a template:**
 
-See [CONTENTS.md](CONTENTS.md) for the full numbered index.
+   ```bash
+   cp templates/lesson.md 01-Programming/variables-and-types.md
+   ```
 
----
+2. **Edit the front-matter** — update `header`, `footer`, and the title slide.
 
-## 📖 How to use this resource
+3. **Add slides** — one idea per slide. Use `---` to separate slides.
 
-1. **Find your topic** using the table above or [CONTENTS.md](CONTENTS.md).
-2. **Open the file** for that spec point — every file covers exactly one numbered section.
-3. **Work through each section** in order:
-   - Read *What you need to know* first for a quick overview.
-   - Use *Specification points* as a self-assessment checklist.
-   - Study *Core notes* and *Key terms* for the detail.
-   - Attempt *Quick-check questions* to test recall.
-   - Try *Exam-style practice* questions under timed conditions.
-4. **Cross-link** — each file links to related topics at the bottom.
+4. **Use the theme classes** where needed:
 
-### Command words to watch for
+   | Class | Usage |
+   |-------|-------|
+   | `<!-- _class: title -->` | Title / cover slide |
+   | `<!-- _class: section -->` | Section divider |
+   | `<!-- _class: invert -->` | Light background slide |
 
-| Word | What OCR expects |
-|------|-----------------|
-| **Define / State** | A short precise answer — usually 1 mark |
-| **Describe** | Say what something is/does — no comparison needed |
-| **Explain** | Give a reason *why* or *how* — look for "because" |
-| **Compare** | Similarities **and** differences — be balanced |
-| **Discuss** | Advantages, disadvantages, different perspectives |
-| **Evaluate** | Weigh up evidence and reach a conclusion |
-| **Trace** | Follow an algorithm step-by-step and show state |
+5. **Add presenter notes** inside `<!-- ... -->` HTML comments.
 
 ---
 
-## ✏️ Contributing / extending
+## 🎨 Theme Reference (`themes/ks5.css`)
 
-- Copy `_template.md` to start a new topic file.
-- Name files using the pattern `X.X.X-short-title.md` so they sort correctly.
-- Keep all content inside the section headings defined in the template.
-- Mark scheme notes can be added inside `<!-- MS: ... -->` HTML comments.
-- Diagrams, flashcard decks, and code snippets can be added as sub-folders later.
+### Colours
+
+| Role | Value |
+|------|-------|
+| Background | `#1a1a2e` deep navy |
+| Accent / headings | `#e94560` coral-red |
+| Code background | `#0d1117` GitHub dark |
+| Surface (invert bg) | `#f0f2f5` near-white |
+
+### Two-column layout
+
+```html
+<div class="columns">
+
+Left column content here.
+
+Right column content here.
+
+</div>
+```
+
+### Badge / inline label
+
+```html
+Some text <span class="badge">NEW</span>
+```
 
 ---
 
-*Resource aligned to OCR A-Level Computer Science specification H446. Not an OCR official publication.*
+## 📝 Marp Front-Matter Reference
+
+```yaml
+---
+marp: true          # required — enables Marp
+theme: ks5          # our custom theme
+paginate: true      # slide numbers
+header: "H446 · Topic Name"
+footer: "© 2025 — Your Name"
+---
+```
+
+---
+
+## 🖼️ Using Images
+
+**Background image (right-aligned, takes 40% of width):**
+
+```markdown
+![bg right:40%](../assets/images/your-image.png)
+```
+
+**Centred image:**
+
+```markdown
+![center width:500px](../assets/diagrams/your-diagram.svg)
+```
+
+**Full-bleed background with dim:**
+
+```markdown
+![bg opacity:0.3](../assets/images/your-image.jpg)
+```
+
+---
+
+## 📋 Topic Index
+
+| Folder | OCR Component | Topics |
+|--------|--------------|--------|
+| [00-Introduction](00-Introduction/) | — | Transition, induction, course overview |
+| [01-Programming](01-Programming/) | 02 | Python, OOP, paradigms |
+| [02-Algorithms](02-Algorithms/) | 02 | Searching, sorting, complexity |
+| [03-Data](03-Data/) | 01 | Data types, structures, representation |
+| [04-Computer-Systems](04-Computer-Systems/) | 01 | Processors, memory, OS, software |
+| [05-Networking](05-Networking/) | 01 | Protocols, hardware, the internet |
+| [06-Cyber-Security](06-Cyber-Security/) | 01 | Threats, defences, legislation |
+| [07-Databases](07-Databases/) | 01 | SQL, normalisation, transactions |
+| [08-Functional-Programming](08-Functional-Programming/) | 02 | Functional concepts, Haskell |
+| [09-Theory](09-Theory/) | 01/02 | Boolean algebra, automata, languages |
+| [10-NEA](10-NEA/) | 03 | Programming project guidance |
+
+---
+
+## 🔗 Useful Links
+
+- [Marp documentation](https://marpit.marp.app/)
+- [Marp CLI reference](https://github.com/marp-team/marp-cli)
+- [Marp for VS Code](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
+- [OCR H446 specification](https://www.ocr.org.uk/Images/170844-specification-accredited-a-level-gce-computer-science-h446.pdf)
+
+---
+
+*Materials aligned to OCR A-Level Computer Science specification H446. Not an OCR official publication.*

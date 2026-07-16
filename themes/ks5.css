@@ -1,0 +1,321 @@
+/*!
+ * ks5.css — Marp theme for KS5 Computer Science lessons
+ *
+ * Usage: add `theme: ks5` to your slide front-matter (requires --theme flag
+ * or the Marp VS Code extension with custom theme configured).
+ *
+ * Colour palette
+ * ─────────────────────────────────────────────────────────────────────────────
+ *   --primary   #1a1a2e  deep navy   (backgrounds, headings)
+ *   --accent    #e94560  coral-red   (highlights, rule lines)
+ *   --mid       #16213e  dark blue   (section backgrounds)
+ *   --light     #0f3460  medium blue (code backgrounds)
+ *   --surface   #f5f5f5  near-white  (card / quote backgrounds)
+ *   --text      #ffffff  white       (default text on dark bg)
+ *   --muted     #a0aec0  grey        (secondary text)
+ *   --code-bg   #0d1117  GitHub dark (fenced code blocks)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+
+:root {
+  --primary:  #1a1a2e;
+  --accent:   #e94560;
+  --mid:      #16213e;
+  --light:    #0f3460;
+  --surface:  #f0f2f5;
+  --text:     #ffffff;
+  --muted:    #a0aec0;
+  --code-bg:  #0d1117;
+  --font-body: 'Inter', sans-serif;
+  --font-code: 'Fira Code', monospace;
+}
+
+section {
+  background: var(--primary);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding: 48px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* ── Typography ───────────────────────────────────────────────────────────── */
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.2em;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.4em;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.2em;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3em;
+}
+
+p {
+  margin: 0.4em 0 0.8em;
+}
+
+ul, ol {
+  margin: 0.4em 0 0.8em 1.2em;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 0.35em;
+}
+
+strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+em {
+  color: var(--muted);
+  font-style: italic;
+}
+
+a {
+  color: #63b3ed;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ── Horizontal rule ─────────────────────────────────────────────────────── */
+
+hr {
+  border: none;
+  border-top: 2px solid var(--accent);
+  margin: 1em 0;
+  opacity: 0.4;
+}
+
+/* ── Code ─────────────────────────────────────────────────────────────────── */
+
+code {
+  font-family: var(--font-code);
+  font-size: 0.88em;
+  background: var(--light);
+  color: #e2e8f0;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+
+pre {
+  background: var(--code-bg);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 1em 1.2em;
+  overflow: auto;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* ── Blockquote (pull-quote / callout style) ─────────────────────────────── */
+
+blockquote {
+  border-left: 4px solid var(--accent);
+  background: var(--mid);
+  color: var(--muted);
+  padding: 0.7em 1.2em;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.95em;
+  margin: 0.8em 0;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* ── Tables ───────────────────────────────────────────────────────────────── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin: 0.8em 0;
+}
+
+th {
+  background: var(--accent);
+  color: var(--text);
+  font-weight: 700;
+  padding: 0.5em 0.8em;
+  text-align: left;
+}
+
+td {
+  padding: 0.45em 0.8em;
+  border-bottom: 1px solid var(--light);
+}
+
+tr:nth-child(even) td {
+  background: var(--mid);
+}
+
+/* ── Header / Footer ─────────────────────────────────────────────────────── */
+
+header {
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-align: right;
+  position: absolute;
+  top: 18px;
+  right: 32px;
+}
+
+footer {
+  font-size: 0.7rem;
+  color: var(--muted);
+  position: absolute;
+  bottom: 14px;
+  right: 32px;
+}
+
+/* ── Paginator ───────────────────────────────────────────────────────────── */
+
+section::after {
+  font-size: 0.7rem;
+  color: var(--muted);
+  content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
+  position: absolute;
+  bottom: 14px;
+  left: 32px;
+}
+
+/* ── Title slide class ───────────────────────────────────────────────────── */
+/* Usage: <!-- _class: title --> */
+
+section.title {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--light) 100%);
+  justify-content: center;
+  align-items: flex-start;
+  padding: 64px 80px;
+}
+
+section.title h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+section.title h2 {
+  border: none;
+  font-size: 1.4rem;
+  color: var(--muted);
+  margin-top: 0.3em;
+}
+
+section.title::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 320px;
+  height: 320px;
+  background: var(--accent);
+  opacity: 0.08;
+  border-radius: 50%;
+  transform: translate(30%, 30%);
+}
+
+/* ── Section divider class ───────────────────────────────────────────────── */
+/* Usage: <!-- _class: section --> */
+
+section.section {
+  background: var(--accent);
+  justify-content: center;
+  align-items: flex-start;
+}
+
+section.section h1,
+section.section h2 {
+  color: var(--text);
+  border: none;
+}
+
+/* ── Invert (light background) ───────────────────────────────────────────── */
+/* Usage: <!-- _class: invert --> */
+
+section.invert {
+  background: var(--surface);
+  color: #1a1a2e;
+}
+
+section.invert h1 { color: var(--primary); }
+section.invert h2 { color: var(--accent); }
+section.invert h3 { color: #4a5568; }
+section.invert strong { color: var(--accent); }
+section.invert em { color: #718096; }
+
+/* ── Two-column layout helper ────────────────────────────────────────────── */
+/* Usage: <div class="columns"> ... </div> inside a slide */
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.columns > * {
+  min-width: 0;
+}
+
+/* ── Highlight / badge helpers ───────────────────────────────────────────── */
+
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--text);
+  font-size: 0.75em;
+  font-weight: 700;
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+  margin-left: 0.4em;
+}
+
+/* ── Image helpers ────────────────────────────────────────────────────────── */
+
+img[alt~="icon"] {
+  width: 2.5rem;
+  vertical-align: middle;
+  margin-right: 0.4rem;
+}
+
+img[alt~="center"] {
+  display: block;
+  margin: 0.6em auto;
+}
