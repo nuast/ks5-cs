@@ -311,9 +311,13 @@ professional software development they'll do at school.
 
 ```python
 # Example: a tiny habit tracker
-habits = {}
-habits["exercise"] = [True, False, True, True]
-print(f"Completion: {sum(habits['exercise'])}/{len(habits['exercise'])}")
+habit_tracker = {
+    "exercise": [True, False, True, True],
+    "reading":  [True, True,  True, False],
+}
+for habit, log in habit_tracker.items():
+    pct = sum(log) / len(log) * 100
+    print(f"{habit}: {pct:.0f}% completed this week")
 ```
 
 <!--
